@@ -1,0 +1,152 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+model User {
+    id         Int      @default(autoincrement()) @id  // Con @id indico que es una primary key
+    uuid       String   @default(uuid()) @unique
+    createdAt  DateTime @default(now())
+
+    name       String
+    username   String?     
+    email      String   @unique
+    password   String
+
+    avatar     String?  // Podemos dejarlo asi, optativo. El user puede que no suba nunca una imagen
+    role       Role     @default(USER)
+
+    addresses  userAddress[]  // Un user puede tener varios Addresses
+
+    reviews    Review[]
+    cartItems  CartItem[]  // Items de Cart
+    orders     Order[]
+}
+enum Role {
+    ADMIN
+    USER
+}
+model userAddress {   
+    id           Int      @default(autoincrement()) @id  // Con @id indico que es una primary key
+    address_line String?  @unique  // Forma de identificar a esta address
+    city         String?  // Todos deben ser mandatory
+    state        String?
+    phone        String?
+
+    orderRelation  Order[]
+
+    user       User?    @relation(fields: [userId], references: [id])
+    userId     Int?     
+    // Nota: Cuidado con hacer una relation 1:1 y luego cambiarlo a 1:N. El @unique no se removera de la DB, no se porque
+    // https://github.com/prisma/prisma/issues/5354
+}
+model Product {
+    id          Int     @default(autoincrement()) @id
+    uuid        String  @default(uuid()) @unique
+    title       String  
+    description String  @db.VarChar(255)
+    image       String?   
+    price       String
+    // size     String?
+    // inventory
+
+    colors      Color[]   @relation("products_colors")
+    category    Category? @relation(fields: [categoryId], references: [id]) 
+    // Un Product puede estar relacionado con solo un category. Asi como esta capaz podria sacar category
+    // y ponerlo como String. Ya que solo Product esta relacionado con el
+    categoryId  Int?
+
+    reviews     Review[]
+    cartItems   CartItem[]  // Un producto puede ser pedido por varios Cart de Users distintos
+    orderItems  OrderItem[]
+}
+model Color {
+    id          Int     @default(autoincrement()) @id
+    title       String  @db.VarChar(7) @unique  // #090909
+
+    cartItems   CartItem[]  // Un Color puede estar en varios Item Cart
+    orderItems  OrderItem[]
+    products    Product[] @relation("products_colors")
+}
+model Category {
+    id          Int     @default(autoincrement()) @id
+    uuid        String  @default(uuid()) @unique
+    name        String  @unique  // Unico
+
+    products    Product[]  // Una category puede estar en varios Product
+}
+model CartItem {
+    id         Int      @default(autoincrement()) @id
+    uuid       String   @default(uuid()) @unique
+    // totalPrice: podria ponerlo en el Item
+    quantity   Int     
+    color      Color?   @relation(fields: [colorId], references: [id])
+    colorId    Int?    
+
+    product    Product? @relation(fields: [productId], references: [id])
+    productId  Int?     
+    // Lo que si, no pueden haber un colorId con el mismo productId
+    user       User?    @relation(fields: [userId], references: [id])
+    userId     Int?     
+}
+model Order {
+    id                   Int      @default(autoincrement()) @id
+    order_id             String   @default(uuid()) @unique  // tracking_no
+    purchase_date        DateTime @default(now())  // createAt
+    delivery_date        DateTime 
+
+    total                String  // amount
+    status               statusOrder @default(pending)
+
+    delivery_address     userAddress?  @relation(fields: [delivery_addressId], references: [id])  // Debe ser obligatorio. Sacar el ?
+    delivery_addressId   Int?        // Es OneToMany, e.g. 2 ordenes pueden usar una misma direccion
+    // Nota: ante delivery_address y user aqui deben estar si o si relacionados. La direccion del delivery_address
+    // debe estar en la direcciones de este user
+    
+
+    orderItems           OrderItem[]
+    user                 User?    @relation(fields: [userId], references: [id])
+    userId               Int?     
+}
+enum statusOrder {
+    pending
+    received
+}
+model OrderItem {
+    id         Int      @default(autoincrement()) @id
+    uuid       String   @default(uuid()) @unique
+    createdAt  DateTime @default(now())
+
+    quantity   Int    
+    color      Color?   @relation(fields: [colorId], references: [id])
+    colorId    Int?
+    product    Product? @relation(fields: [productId], references: [id])
+    productId  Int?     
+
+
+    order      Order?   @relation(fields: [orderId], references: [id])
+    orderId    Int?
+}
+model Review {
+    id         Int      @default(autoincrement()) @id
+    uuid       String   @default(uuid()) @unique
+    createdAt  DateTime @default(now())
+
+    comment    String   @db.VarChar(500) // Si o si debe haber un text
+
+    product    Product? @relation(fields: [productId], references: [id])
+    productId  Int?     
+    user       User?    @relation(fields: [userId], references: [id])
+    userId     Int?     
+
+}
+
+
+
