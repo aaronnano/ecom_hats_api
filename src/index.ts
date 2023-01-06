@@ -23,7 +23,8 @@ app.use(express.urlencoded({ extended: false }))
 app.use('/api', routes)
 
 // ### Server ###
-app.listen(PORT as number, '0.0.0.0', async() => {
+// PORT as number, '0.0.0.0'
+app.listen(PORT, async() => {
     console.log('Listen....')
     // console.log(`Local:     http://localhost:${ PORT }`)
     // console.log(`Network:   http://${ip}:${PORT}`)
