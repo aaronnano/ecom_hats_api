@@ -120,4 +120,3 @@ var getColors = function (req, res) { return __awaiter(void 0, void 0, void 0, f
     });
 }); };
 exports.getColors = getColors;
-//# sourceMappingURL=colors.controllers.js.map

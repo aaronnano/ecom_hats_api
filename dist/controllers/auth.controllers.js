@@ -209,4 +209,3 @@ var loginWithToken = function (req, res) { return __awaiter(void 0, void 0, void
     });
 }); };
 exports.loginWithToken = loginWithToken;
-//# sourceMappingURL=auth.controllers.js.map

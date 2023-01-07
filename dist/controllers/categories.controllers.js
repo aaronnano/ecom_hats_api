@@ -74,4 +74,3 @@ var getCategories = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.getCategories = getCategories;
-//# sourceMappingURL=categories.controllers.js.map

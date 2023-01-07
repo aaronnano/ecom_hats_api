@@ -33,4 +33,3 @@ var USER = types_1.ROLE.USER;
 exports.orderRoutes = (0, express_1.Router)();
 exports.orderRoutes
     .post('/user/:id', verifyToken_1.verifyToken, (0, authRoles_1.authBy)(USER), order.createOrder);
-//# sourceMappingURL=order.routes.js.map

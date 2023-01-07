@@ -6,4 +6,3 @@ var getKeyValue = function (data) {
         .reduce(function (store, none) { return ({ key: none[0], value: none[1] }); }, {});
 };
 exports.getKeyValue = getKeyValue;
-//# sourceMappingURL=getKeyValue.js.map

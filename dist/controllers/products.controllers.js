@@ -169,4 +169,3 @@ var createProduct = function (req, res) { return __awaiter(void 0, void 0, void 
     });
 }); };
 exports.createProduct = createProduct;
-//# sourceMappingURL=products.controllers.js.map

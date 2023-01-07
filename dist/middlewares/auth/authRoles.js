@@ -30,4 +30,3 @@ var authBy = function () {
     };
 };
 exports.authBy = authBy;
-//# sourceMappingURL=authRoles.js.map

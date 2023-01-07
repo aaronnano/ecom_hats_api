@@ -76,4 +76,3 @@ var verifyToken = function (req, res, next) { return __awaiter(void 0, void 0, v
     });
 }); };
 exports.verifyToken = verifyToken;
-//# sourceMappingURL=verifyToken.js.map

@@ -24,4 +24,3 @@ var cleanEmptyFields = function (args) {
     }, {});
 };
 exports.cleanEmptyFields = cleanEmptyFields;
-//# sourceMappingURL=cleanEmptyFields.js.map

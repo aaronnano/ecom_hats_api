@@ -34,4 +34,3 @@ exports.authRoutes
     .post('/login', auth.toLogin)
     .get('/check', verifyToken_1.verifyToken, auth.loginWithToken);
 // Debe existir el token para poder hacer el refresh. Generar uno nuevo a partir de uno existente
-//# sourceMappingURL=auth.routes.js.map

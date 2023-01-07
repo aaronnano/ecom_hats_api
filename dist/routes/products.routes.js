@@ -30,4 +30,3 @@ exports.productsRoutes = (0, express_1.Router)();
 exports.productsRoutes
     .get('/', products.getProducts)
     .post('/', products.createProduct);
-//# sourceMappingURL=products.routes.js.map

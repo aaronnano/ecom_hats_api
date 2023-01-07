@@ -6,4 +6,3 @@ var ROLE;
     ROLE["USER"] = "USER";
     ROLE["ADMIN"] = "ADMIN";
 })(ROLE = exports.ROLE || (exports.ROLE = {}));
-//# sourceMappingURL=index.js.map

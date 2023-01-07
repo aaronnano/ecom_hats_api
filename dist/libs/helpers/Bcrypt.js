@@ -17,4 +17,3 @@ var compareData = function (data, hash) {
     return bcryptjs_1["default"].compareSync(data, hash);
 };
 exports.compareData = compareData;
-//# sourceMappingURL=Bcrypt.js.map

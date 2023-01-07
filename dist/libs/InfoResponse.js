@@ -40,4 +40,3 @@ var Info = /** @class */ (function () {
     return Info;
 }());
 exports.Info = Info;
-//# sourceMappingURL=InfoResponse.js.map

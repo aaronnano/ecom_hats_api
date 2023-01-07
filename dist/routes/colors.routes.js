@@ -30,4 +30,3 @@ exports.colorsRoutes = (0, express_1.Router)();
 exports.colorsRoutes
     .get('/', colors.getColors)
     .post('/', colors.createColors);
-//# sourceMappingURL=colors.routes.js.map

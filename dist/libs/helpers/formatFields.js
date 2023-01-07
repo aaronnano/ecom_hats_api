@@ -22,4 +22,3 @@ var formatFields = function (_a) {
     // Return undefined or object 
 };
 exports.formatFields = formatFields;
-//# sourceMappingURL=formatFields.js.map

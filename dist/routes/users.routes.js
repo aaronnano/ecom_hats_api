@@ -36,4 +36,3 @@ exports.usersRoutes // Add roles. Poner verifyToken
     .post('/', (0, authRoles_1.authBy)(), users.createUser)
     .put('/:id', verifyToken_1.verifyToken, (0, authRoles_1.authBy)(USER), users.updateUser) // Requires Token and accepts User role
 ["delete"]('/:id', (0, authRoles_1.authBy)(), users.deleteUser)["delete"]('/:id/address/:addressId', verifyToken_1.verifyToken, (0, authRoles_1.authBy)(USER), users.deleteUserAddress);
-//# sourceMappingURL=users.routes.js.map

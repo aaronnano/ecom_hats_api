@@ -2,6 +2,7 @@
 
 export class User {
     private id: number
+    private uuid: number
     private name: string
     private username: string
     private email: string
@@ -9,8 +10,9 @@ export class User {
     private addresses: any
     private orders: any
 
-    constructor({ id, name, username, email, avatar, addresses, orders }: any){
+    constructor({ id, uuid, name, username, email, avatar, addresses, orders }: any){
         this.id = id
+        this.uuid = uuid
         this.name = name
         this.username = username
         this.email = email

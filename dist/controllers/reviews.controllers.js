@@ -220,4 +220,3 @@ var deleteReview = function (req, res) { return __awaiter(void 0, void 0, void 0
     });
 }); };
 exports.deleteReview = deleteReview;
-//# sourceMappingURL=reviews.controllers.js.map

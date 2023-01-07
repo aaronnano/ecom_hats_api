@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "sourceMap": true,
+    // "sourceMap": true,
     "outDir": "dist",  // No es necesario poner el rootDir, tsc busca el file: index.ts o app.ts
     "strict": true,
     "lib": ["esnext"],

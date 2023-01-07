@@ -15,8 +15,9 @@ exports.__esModule = true;
 exports.Order = exports.Review = exports.CartItem = exports.Product = exports.Address = exports.User = void 0;
 var User = /** @class */ (function () {
     function User(_a) {
-        var id = _a.id, name = _a.name, username = _a.username, email = _a.email, avatar = _a.avatar, addresses = _a.addresses, orders = _a.orders;
+        var id = _a.id, uuid = _a.uuid, name = _a.name, username = _a.username, email = _a.email, avatar = _a.avatar, addresses = _a.addresses, orders = _a.orders;
         this.id = id;
+        this.uuid = uuid;
         this.name = name;
         this.username = username;
         this.email = email;
@@ -100,4 +101,3 @@ var Order = /** @class */ (function () {
     return Order;
 }());
 exports.Order = Order;
-//# sourceMappingURL=Models.js.map

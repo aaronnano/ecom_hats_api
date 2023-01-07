@@ -35,4 +35,3 @@ exports.reviewsRoutes
     .get('/product/:productId', reviews.getReviewsFromProduct)
     .post('/user/:id', verifyToken_1.verifyToken, (0, authRoles_1.authBy)(USER), reviews.createReview)
     .put('/:reviewId/user/:id', verifyToken_1.verifyToken, (0, authRoles_1.authBy)(USER), reviews.updateReview)["delete"]('/:reviewId/user/:id', verifyToken_1.verifyToken, (0, authRoles_1.authBy)(USER), reviews.deleteReview);
-//# sourceMappingURL=reviews.routes.js.map

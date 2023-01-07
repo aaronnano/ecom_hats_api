@@ -29,4 +29,3 @@ var categories = __importStar(require("../controllers/categories.controllers"));
 exports.routes = (0, express_1.Router)();
 exports.routes
     .get('/', categories.getCategories);
-//# sourceMappingURL=categories.routes.js.map

@@ -39,4 +39,3 @@ exports.cartRoutes
 // Item de que user elimino. No seria necesario recibir por el path el id del User, podriamos hacer
 // que la funcion decidiera si hacer la accion o no segun a quien pertenece este cartItem, con prisma
 // Habria que cambiar mejor las cosas
-//# sourceMappingURL=cart.routes.js.map
